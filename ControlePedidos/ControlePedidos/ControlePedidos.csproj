@@ -11,8 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Domain\Enti\" />
+    <Folder Include="Application\DTOs\" />
+    <Folder Include="Application\Services\" />
+    <Folder Include="Infrastructure\Repositories\" />
+    <Folder Include="WebApi\Controolers\" />
   </ItemGroup>
 
 </Project>

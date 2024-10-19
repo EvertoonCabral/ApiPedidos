@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|d:\\projetos .net\\api-pedidos\\apipedidos\\controlepedidos\\controlepedidos\\domain\\entities\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|solutionrelative:controlepedidos\\domain\\entities\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|d:\\projetos .net\\api-pedidos\\apipedidos\\controlepedidos\\controlepedidos\\domain\\entities\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|solutionrelative:controlepedidos\\domain\\entities\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|d:\\projetos .net\\api-pedidos\\apipedidos\\controlepedidos\\controlepedidos\\domain\\repositories\\iprodutorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|solutionrelative:controlepedidos\\domain\\repositories\\iprodutorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|d:\\projetos .net\\api-pedidos\\apipedidos\\controlepedidos\\controlepedidos\\domain\\repositories\\ipedidorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|solutionrelative:controlepedidos\\domain\\repositories\\ipedidorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|d:\\projetos .net\\api-pedidos\\apipedidos\\controlepedidos\\controlepedidos\\domain\\enums\\statuspedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|solutionrelative:controlepedidos\\domain\\enums\\statuspedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|d:\\projetos .net\\api-pedidos\\apipedidos\\controlepedidos\\controlepedidos\\controlepedidos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A71AC6F2-B477-4175-BC46-07614FDBC5A3}|ControlePedidos\\ControlePedidos.csproj|solutionrelative:controlepedidos\\controlepedidos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -18,12 +38,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IProdutoRepository.cs",
+              "DocumentMoniker": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Repositories\\IProdutoRepository.cs",
+              "RelativeDocumentMoniker": "ControlePedidos\\Domain\\Repositories\\IProdutoRepository.cs",
+              "ToolTip": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Repositories\\IProdutoRepository.cs",
+              "RelativeToolTip": "ControlePedidos\\Domain\\Repositories\\IProdutoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T04:57:06.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPedidoRepository.cs",
+              "DocumentMoniker": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Repositories\\IPedidoRepository.cs",
+              "RelativeDocumentMoniker": "ControlePedidos\\Domain\\Repositories\\IPedidoRepository.cs",
+              "ToolTip": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Repositories\\IPedidoRepository.cs",
+              "RelativeToolTip": "ControlePedidos\\Domain\\Repositories\\IPedidoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T04:56:49.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StatusPedido.cs",
+              "DocumentMoniker": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Enums\\StatusPedido.cs",
+              "RelativeDocumentMoniker": "ControlePedidos\\Domain\\Enums\\StatusPedido.cs",
+              "ToolTip": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Enums\\StatusPedido.cs",
+              "RelativeToolTip": "ControlePedidos\\Domain\\Enums\\StatusPedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T04:56:01.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ControlePedidos",
+              "Title": "Produto.cs",
+              "DocumentMoniker": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Entities\\Produto.cs",
+              "RelativeDocumentMoniker": "ControlePedidos\\Domain\\Entities\\Produto.cs",
+              "ToolTip": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Entities\\Produto.cs",
+              "RelativeToolTip": "ControlePedidos\\Domain\\Entities\\Produto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T04:55:11.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Entities\\Pedido.cs",
+              "RelativeDocumentMoniker": "ControlePedidos\\Domain\\Entities\\Pedido.cs",
+              "ToolTip": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Domain\\Entities\\Pedido.cs",
+              "RelativeToolTip": "ControlePedidos\\Domain\\Entities\\Pedido.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T04:54:49.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ControlePedidos.csproj",
               "DocumentMoniker": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\ControlePedidos.csproj",
               "RelativeDocumentMoniker": "ControlePedidos\\ControlePedidos.csproj",
               "ToolTip": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\ControlePedidos.csproj",
@@ -35,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projetos .NET\\API-Pedidos\\ApiPedidos\\ControlePedidos\\ControlePedidos\\Program.cs",
               "RelativeDocumentMoniker": "ControlePedidos\\Program.cs",
@@ -43,8 +128,7 @@
               "RelativeToolTip": "ControlePedidos\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T04:46:32.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T04:46:32.477Z"
             }
           ]
         }

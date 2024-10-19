@@ -10,9 +10,14 @@ namespace ControlePedidos.Infrastructure.Repositories
 
         private readonly ApplicationDbContext _context;
 
+        public ProdutoRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         public async Task CreateProduto(Produto produto)
         {
+
             await _context.Produtos.AddAsync(produto);
             await _context.SaveChangesAsync(); 
         }

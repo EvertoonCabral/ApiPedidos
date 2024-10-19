@@ -19,12 +19,18 @@ namespace ControlePedidos.WebApi.Controolers
             _produtoService = produtoService;
         }
 
-
-        [HttpPost("AddProduto")]
-        public async Task<ActionResult<Pedido>> IniciarPedido(Produto p1)
+        [HttpPost("Adicionar Produto")]
+        public async Task<ActionResult<Produto>> AddProduto([FromBody] Produto p1)
         {
-            var produto = await _produtoService.CreateProduto(p1);
-            return Ok(produto);
+            try
+            {
+                var produto = await _produtoService.CreateProduto(p1);
+                return CreatedAtAction(nameof(AddProduto), new { id = produto.Id }, produto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro interno do servidor.");
+            }
         }
 
 

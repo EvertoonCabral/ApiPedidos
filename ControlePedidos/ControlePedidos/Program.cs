@@ -4,6 +4,7 @@ using ApiControlePedidos.Domain.Repositories;
 using ApiControlePedidos.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using ControlePedidos.Infrastructure.Repositories;
+using ControlePedidos.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,8 +24,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 
-// Registrando o PedidoService
+// Registrando o services
 builder.Services.AddScoped<PedidoService>();
+builder.Services.AddScoped<ProdutoService>(); 
+
 
 var app = builder.Build();
 

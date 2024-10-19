@@ -131,8 +131,8 @@
   },
   {
     "ContainingType": "ControlePedidos.WebApi.Controolers.ProdutoController",
-    "Method": "IniciarPedido",
-    "RelativePath": "api/Produto/AddProduto",
+    "Method": "AddProduto",
+    "RelativePath": "api/Produto/Adicionar Produto",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -145,7 +145,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ApiControlePedidos.Domain.Entities.Pedido",
+        "Type": "ApiControlePedidos.Domain.Entities.Produto",
         "MediaTypes": [
           "text/plain",
           "application/json",

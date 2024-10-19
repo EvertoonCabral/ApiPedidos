@@ -128,5 +128,31 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "ControlePedidos.WebApi.Controolers.ProdutoController",
+    "Method": "IniciarPedido",
+    "RelativePath": "api/Produto/AddProduto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "p1",
+        "Type": "ApiControlePedidos.Domain.Entities.Produto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ApiControlePedidos.Domain.Entities.Pedido",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

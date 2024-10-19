@@ -19,6 +19,13 @@ namespace ApiControlePedidos.Domain.Entities
             Quantidade = quantidade;
             DataCadastro = DateTime.UtcNow;
         }
+
+        public Produto()
+        {
+            DataCadastro = DateTime.UtcNow;
+
+        }
+
     }
 }
 

@@ -8,7 +8,7 @@ namespace ApiControlePedidos.Domain.Repositories
         IEnumerable<Produto> GetAllProdutos();
         void DeleteProduto(int id);
         void UpdateProduto(int id, Produto produto);
-        void CreateProduto(Produto produto);
+        Task CreateProduto(Produto produto);
 
 
     }

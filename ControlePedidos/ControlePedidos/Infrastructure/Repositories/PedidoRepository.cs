@@ -28,16 +28,17 @@ namespace ApiControlePedidos.Infrastructure.Repositories
                 .ToList();
         }
 
-        public void CreatePedido(Pedido pedido)
+        public async Task CreatePedido(Pedido pedido)
         {
-            _context.Pedidos.Add(pedido);
-            _context.SaveChangesAsync();
+            await _context.Pedidos.AddAsync(pedido);
+            await _context.SaveChangesAsync(); // Aguarde a conclusão da operação
         }
+
 
         public void UpdatePedido(int id, Pedido pedido)
         {
             _context.Pedidos.Update(pedido);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
         public void DeletePedido(int id)
@@ -46,7 +47,7 @@ namespace ApiControlePedidos.Infrastructure.Repositories
             if (pedido != null)
             {
                 _context.Pedidos.Remove(pedido);
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
         }
     }

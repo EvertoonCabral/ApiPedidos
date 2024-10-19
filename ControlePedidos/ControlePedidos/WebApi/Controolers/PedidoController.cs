@@ -17,11 +17,12 @@ namespace ApiControlePedidos.API.Controllers
         }
 
         [HttpPost("iniciar")]
-        public ActionResult<Pedido> IniciarPedido(string nome)
+        public async Task<ActionResult<Pedido>> IniciarPedido(string nome)
         {
-            var pedido = _pedidoService.IniciarPedido(nome);
+            var pedido = await _pedidoService.IniciarPedido(nome);
             return Ok(pedido);
         }
+
 
         [HttpPost("{pedidoId}/produtos/{produtoId}/adicionar")]
         public ActionResult AdicionarProduto(int pedidoId, int produtoId)

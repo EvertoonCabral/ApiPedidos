@@ -1,8 +1,11 @@
 ﻿using ApiControlePedidos.Domain.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 
 namespace ApiControlePedidos.Domain.Entities
 {
+    [Table("Pedidos")]
     public class Pedido
     {
         public int Id { get; private set; }
@@ -12,7 +15,9 @@ namespace ApiControlePedidos.Domain.Entities
         public DateTime? DataFechamento { get; private set; }
         public DateTime? DataCancelamento { get; private set; }
 
+        [JsonIgnore]
         private List<Produto> _produtos;
+        [JsonIgnore]
         public IReadOnlyCollection<Produto> Produtos => _produtos.AsReadOnly();
 
         public Pedido(string nome)

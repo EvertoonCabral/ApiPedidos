@@ -18,10 +18,10 @@ namespace ApiControlePedidos.Application.Services
         }
 
 
-        public Pedido IniciarPedido(string nome)
+        public async Task<Pedido> IniciarPedido(string nome)
         {
             var pedido = new Pedido(nome);
-            _pedidoRepository.CreatePedido(pedido);
+            await _pedidoRepository.CreatePedido(pedido);
             return pedido;
         }
 

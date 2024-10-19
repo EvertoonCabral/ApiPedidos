@@ -1,7 +1,9 @@
-﻿using System.Runtime.InteropServices.ComTypes;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace ApiControlePedidos.Domain.Entities
 {
+    [Table("Produtos")]
     public class Produto
     {
         public int Id { get; private set; }

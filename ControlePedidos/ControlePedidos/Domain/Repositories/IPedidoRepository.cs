@@ -7,8 +7,7 @@ namespace ApiControlePedidos.Domain.Repositories
 
         Pedido GetPedidoById(int id);
         IEnumerable<Pedido> GetAllPedidos();
-
-        void CreatePedido(Pedido pedido);
+        Task CreatePedido(Pedido pedido);
         void UpdatePedido(int id, Pedido pedido);
         void DeletePedido(int id);
 

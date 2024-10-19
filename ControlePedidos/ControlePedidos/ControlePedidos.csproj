@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Application\DTOs\" />
-    <Folder Include="WebApi\Controolers\" />
   </ItemGroup>
 
 </Project>

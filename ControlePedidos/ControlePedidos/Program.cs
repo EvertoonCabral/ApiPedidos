@@ -1,15 +1,34 @@
+using ApiControlePedidos.Application.Services;
+using ApiControlePedidos.Infrastructure;
+using ApiControlePedidos.Domain.Repositories;
+using ApiControlePedidos.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using ControlePedidos.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adicionando serviços ao contêiner.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Registrando o ApplicationDbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+// Registrando os repositórios
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+
+// Registrando o PedidoService
+builder.Services.AddScoped<PedidoService>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurando o pipeline de requisição HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

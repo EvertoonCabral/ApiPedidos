@@ -31,7 +31,7 @@ namespace ApiControlePedidos.Infrastructure.Repositories
         public void CreatePedido(Pedido pedido)
         {
             _context.Pedidos.Add(pedido);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
         public void UpdatePedido(int id, Pedido pedido)

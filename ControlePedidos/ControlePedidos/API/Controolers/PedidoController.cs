@@ -1,5 +1,6 @@
 ﻿using ApiControlePedidos.Application.Services;
 using ApiControlePedidos.Domain.Entities;
+using ApiControlePedidos.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControlePedidos.API.Controllers
@@ -8,24 +9,36 @@ namespace ApiControlePedidos.API.Controllers
     [Route("api/[controller]")]
     public class PedidoController : ControllerBase
     {
+
         private readonly PedidoService _pedidoService;
+
+
 
         public PedidoController(PedidoService pedidoService)
         {
+
             _pedidoService = pedidoService;
+
         }
+
+
 
         [HttpPost("AbrirPedido")]
         public async Task<ActionResult<Pedido>> IniciarPedido(string nome)
         {
 
+
             var pedido = await _pedidoService.IniciarPedido(nome);
             return Ok(pedido);
+
         }
+
+
 
         [HttpPost("{pedidoId}/produtos/{produtoId}/AdicionarProduto")]
         public async Task<IActionResult> AdicionarProdutoAoPedido(int pedidoId, int produtoId)
         {
+
             try
             {
                 await _pedidoService.AdicionarProdutoAoPedido(pedidoId, produtoId);
@@ -35,7 +48,10 @@ namespace ApiControlePedidos.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
+
         }
+
+
 
         [HttpDelete("{pedidoId}/produtos/{produtoId}/RemoverProduto")]
         public async Task<IActionResult> RemoverProduto(int pedidoId, int produtoId)
@@ -51,6 +67,8 @@ namespace ApiControlePedidos.API.Controllers
             }
         }
 
+
+
         [HttpPut("{pedidoId}/FecharPedido")]
         public async Task<IActionResult> FecharPedido(int pedidoId)
         {
@@ -65,16 +83,50 @@ namespace ApiControlePedidos.API.Controllers
             }
         }
 
-        [HttpGet("ListarPedidos")]
-        public ActionResult<IEnumerable<Pedido>> ListarPedidos()
+
+
+        [HttpPut("{pedidoId}/CancelarPedido")]
+        public async Task<IActionResult> CancelarPedido(int pedidoId)
         {
-            var pedidos = _pedidoService.ListarPedidos();
-            return Ok(pedidos);
+            try
+            {
+                await _pedidoService.CancelarPedido(pedidoId);
+                return Ok("Pedido cancelado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
+
+
+        [HttpGet("ListarPedidos")]
+        public ActionResult<IEnumerable<Pedido>> ListarPedidos(int NumPaginas = 1, int TamanhoPagina = 10)
+        {
+
+            var pedidos = _pedidoService.ListarPedidos(NumPaginas, TamanhoPagina);
+            return Ok(pedidos);
+
+        }
+
+
+
+        [HttpGet("ListarPedidosPorStatus")]
+        public ActionResult<IEnumerable<Pedido>> ListarPedidosPorStatus(StatusPedido status)
+        {
+
+            var pedidos = _pedidoService.ListarPedidosPorStatus(status);
+            return Ok(pedidos);
+
+        }
+
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Pedido>> ObterPedidoPorId(int id)
         {
+
             var pedido = await _pedidoService.ObterPedidoPorId(id);
             if (pedido == null)
             {
@@ -82,6 +134,7 @@ namespace ApiControlePedidos.API.Controllers
             }
 
             return Ok(pedido);
+
         }
     }
 }

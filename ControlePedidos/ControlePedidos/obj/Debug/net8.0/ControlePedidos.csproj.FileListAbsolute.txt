@@ -141,3 +141,12 @@ D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\obj\Debu
 D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\obj\Debug\net8.0\ControlePedidos.pdb
 D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\obj\Debug\net8.0\ControlePedidos.genruntimeconfig.cache
 D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\obj\Debug\net8.0\ref\ControlePedidos.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\Castle.Core.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\Moq.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\xunit.abstractions.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\xunit.assert.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\xunit.core.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\xunit.execution.dotnet.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\xunit.runner.visualstudio.testadapter.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
+D:\Projetos .NET\API-Pedidos\ApiPedidos\ControlePedidos\ControlePedidos\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll

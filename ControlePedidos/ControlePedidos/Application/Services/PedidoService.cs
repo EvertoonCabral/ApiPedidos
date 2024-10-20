@@ -1,5 +1,6 @@
 ﻿    using ApiControlePedidos.Domain.Entities;
-    using ApiControlePedidos.Domain.Repositories;
+using ApiControlePedidos.Domain.Enums;
+using ApiControlePedidos.Domain.Repositories;
 
     namespace ApiControlePedidos.Application.Services
     {
@@ -55,19 +56,49 @@
             var pedido = await _pedidoRepository.GetPedidoById(pedidoId);
             if (pedido == null) throw new Exception("Pedido não encontrado");
 
-            pedido.FecharPedido(); // Altera o status para fechado e define a data de fechamento
+            pedido.FecharPedido(); 
             await _pedidoRepository.UpdatePedido(pedidoId, pedido);
         }
 
 
-        public IEnumerable<Pedido> ListarPedidos()
+        public async Task CancelarPedido(int pedidoId)
+        {
+            var pedido = await _pedidoRepository.GetPedidoById(pedidoId);
+
+            if (pedido == null)
             {
-                return _pedidoRepository.GetAllPedidos();
+                throw new Exception("Pedido não encontrado.");
             }
 
-            public async Task<Pedido> ObterPedidoPorId(int id)
+            pedido.CancelarPedido();
+
+            await _pedidoRepository.UpdatePedido(pedidoId,pedido);
+        }
+
+
+
+
+        public IEnumerable<Pedido> ListarPedidos(int pageNumber, int pageSize)
+        {
+            return _pedidoRepository.GetAllPedidos()
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+        }
+
+
+        public IEnumerable<Pedido> ListarPedidosPorStatus(StatusPedido status)
+        {
+            return _pedidoRepository.GetAllPedidos()
+                    .Where(p => p.Status == status)
+                    .ToList();
+        }
+
+
+
+        public async Task<Pedido> ObterPedidoPorId(int id)
             {
-                return await _pedidoRepository.GetPedidoById(id); // Aguarde a obtenção do pedido
+                return await _pedidoRepository.GetPedidoById(id);   
             }
 
 

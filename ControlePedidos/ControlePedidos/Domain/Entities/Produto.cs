@@ -31,5 +31,9 @@ namespace ApiControlePedidos.Domain.Entities
         {
             DataCadastro = DateTime.UtcNow;
         }
+
+        public Produto(string v1, int v2)
+        {
+        }
     }
 }

@@ -55,13 +55,21 @@ namespace ApiControlePedidos.Domain.Entities
 
         public void FecharPedido()
         {
+            if (Status != StatusPedido.aberto)
+            {
+                throw new InvalidOperationException("O pedido já está fechado ou cancelado.");
+            }
+
             if (!_produtos.Any())
             {
                 throw new InvalidOperationException("O pedido não pode ser fechado sem produtos.");
             }
+
             Status = StatusPedido.fechado;
             DataFechamento = DateTime.UtcNow;
         }
+
+
 
         public void CancelarPedido()
         {

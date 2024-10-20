@@ -1,75 +1,78 @@
-﻿using ApiControlePedidos.Domain.Entities;
-using ApiControlePedidos.Domain.Repositories;
+﻿    using ApiControlePedidos.Domain.Entities;
+    using ApiControlePedidos.Domain.Repositories;
 
-namespace ApiControlePedidos.Application.Services
-{
-    public class PedidoService
+    namespace ApiControlePedidos.Application.Services
     {
-
-        private readonly IPedidoRepository _pedidoRepository;
-        private readonly IProdutoRepository _produtoRepository;
-
-
-        public PedidoService(IPedidoRepository pedidoRepository, IProdutoRepository produtoRepository)
+        public class PedidoService
         {
 
-            _pedidoRepository = pedidoRepository;
-            _produtoRepository = produtoRepository;
-        }
+            private readonly IPedidoRepository _pedidoRepository;
+            private readonly IProdutoRepository _produtoRepository;
 
 
-        public async Task<Pedido> IniciarPedido(string nome)
+            public PedidoService(IPedidoRepository pedidoRepository, IProdutoRepository produtoRepository)
+            {
+
+                _pedidoRepository = pedidoRepository;
+                _produtoRepository = produtoRepository;
+            }
+
+
+            public async Task<Pedido> IniciarPedido(string nome)
+            {
+                var pedido = new Pedido(nome);
+                await _pedidoRepository.CreatePedido(pedido);
+                return pedido;
+            }
+
+            public async Task AdicionarProdutoAoPedido(int pedidoId, int produtoId)
+            {
+                var pedido = await _pedidoRepository.GetPedidoById(pedidoId); 
+                if (pedido == null) throw new Exception("Pedido não encontrado");
+
+                var produto = await _produtoRepository.GetProdutoById(produtoId); 
+                if (produto == null) throw new Exception("Produto não encontrado");
+
+                pedido.AdicionarProduto(produto);
+                await _pedidoRepository.UpdatePedido(pedidoId, pedido);
+            }
+
+            public async Task RemoverProdutoDoPedido(int pedidoId, int produtoId)
+            {
+                var pedido = await _pedidoRepository.GetPedidoById(pedidoId); // Aguarde a obtenção do pedido
+                if (pedido == null) throw new Exception("Pedido não encontrado");
+
+                var produto = await _produtoRepository.GetProdutoById(produtoId); // Aguarde a obtenção do produto
+                if (produto == null) throw new Exception("Produto não encontrado");
+
+                pedido.RemoverProduto(produto);
+                await _pedidoRepository.UpdatePedido(pedidoId, pedido); // Aguarde a atualização
+            }
+
+
+        public async Task FecharPedido(int pedidoId)
         {
-            var pedido = new Pedido(nome);
-            await _pedidoRepository.CreatePedido(pedido);
-            return pedido;
-        }
-
-        public void AdicionarProdutoAoPedido(int pedidoId, int produtoId)
-        {
-            var pedido = _pedidoRepository.GetPedidoById(pedidoId);
+            var pedido = await _pedidoRepository.GetPedidoById(pedidoId);
             if (pedido == null) throw new Exception("Pedido não encontrado");
 
-            var produto = _produtoRepository.GetProdutoById(produtoId);
-            if (produto == null) throw new Exception("Produto não encontrado");
-
-            pedido.AdicionarProduto(produto);
-            _pedidoRepository.UpdatePedido(pedidoId, pedido);
+            pedido.FecharPedido(); // Altera o status para fechado e define a data de fechamento
+            await _pedidoRepository.UpdatePedido(pedidoId, pedido);
         }
 
-        public void RemoverProdutoDoPedido(int pedidoId, int produtoId)
-        {
-            var pedido = _pedidoRepository.GetPedidoById(pedidoId);
-            if (pedido == null) throw new Exception("Pedido não encontrado");
-
-            var produto = _produtoRepository.GetProdutoById(produtoId);
-            if (produto == null) throw new Exception("Produto não encontrado");
-
-            pedido.RemoverProduto(produto);
-            _pedidoRepository.UpdatePedido(pedidoId, pedido);
-        }
-
-        public void FecharPedido(int pedidoId)
-        {
-            var pedido = _pedidoRepository.GetPedidoById(pedidoId);
-            if (pedido == null) throw new Exception("Pedido não encontrado");
-
-            pedido.FecharPedido();
-            _pedidoRepository.UpdatePedido(pedidoId, pedido);
-        }
 
         public IEnumerable<Pedido> ListarPedidos()
-        {
-            return _pedidoRepository.GetAllPedidos();
+            {
+                return _pedidoRepository.GetAllPedidos();
+            }
+
+            public async Task<Pedido> ObterPedidoPorId(int id)
+            {
+                return await _pedidoRepository.GetPedidoById(id); // Aguarde a obtenção do pedido
+            }
+
+
         }
 
-        public Pedido ObterPedidoPorId(int id)
-        {
-            return _pedidoRepository.GetPedidoById(id);
-        }
 
     }
-
-
-}
 

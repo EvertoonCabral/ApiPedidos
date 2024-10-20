@@ -21,24 +21,45 @@ namespace ControlePedidos.Infrastructure.Repositories
             await _context.Produtos.AddAsync(produto);
             await _context.SaveChangesAsync(); 
         }
-        public void DeleteProduto(int id)
+        public async Task DeleteProduto(int id)
         {
-            throw new NotImplementedException();
+            var produto = await GetProdutoById(id); 
+            if (produto != null)
+            {
+                _context.Produtos.Remove(produto);
+                await _context.SaveChangesAsync(); 
+            }
         }
 
         public IEnumerable<Produto> GetAllProdutos()
         {
-            throw new NotImplementedException();
+            return _context.Produtos.ToList(); // Retornar todos os produtos
         }
 
-        public Produto GetProdutoById(int id)
+
+        public async Task<Produto> GetProdutoById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Produtos.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public void UpdateProduto(int id, Produto produto)
+
+        public async Task UpdateProduto(int id, Produto produto)
         {
-            throw new NotImplementedException();
+            var existingProduto = await GetProdutoById(id);
+            if (existingProduto != null)
+            {
+                existingProduto.Nome = produto.Nome;
+                existingProduto.Preco = produto.Preco;
+                existingProduto.Quantidade = produto.Quantidade;
+
+                await _context.SaveChangesAsync(); // Aguardar a conclusão da operação
+            }
         }
+
+
+
+
+
+
     }
 }

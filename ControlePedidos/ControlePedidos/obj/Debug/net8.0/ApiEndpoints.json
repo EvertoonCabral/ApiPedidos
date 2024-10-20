@@ -1,26 +1,6 @@
 [
   {
     "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
-    "Method": "ListarPedidos",
-    "RelativePath": "api/Pedido",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ApiControlePedidos.Domain.Entities.Pedido, ControlePedidos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
     "Method": "ObterPedidoPorId",
     "RelativePath": "api/Pedido/{id}",
     "HttpMethod": "GET",
@@ -48,8 +28,8 @@
   {
     "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
     "Method": "FecharPedido",
-    "RelativePath": "api/Pedido/{pedidoId}/fechar",
-    "HttpMethod": "POST",
+    "RelativePath": "api/Pedido/{pedidoId}/fecharPedido",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -63,8 +43,8 @@
   },
   {
     "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
-    "Method": "AdicionarProduto",
-    "RelativePath": "api/Pedido/{pedidoId}/produtos/{produtoId}/adicionar",
+    "Method": "AdicionarProdutoAoPedido",
+    "RelativePath": "api/Pedido/{pedidoId}/produtos/{produtoId}/AdicionarProduto",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -85,7 +65,7 @@
   {
     "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
     "Method": "RemoverProduto",
-    "RelativePath": "api/Pedido/{pedidoId}/produtos/{produtoId}/remover",
+    "RelativePath": "api/Pedido/{pedidoId}/produtos/{produtoId}/RemoverProduto",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -106,7 +86,7 @@
   {
     "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
     "Method": "IniciarPedido",
-    "RelativePath": "api/Pedido/iniciar",
+    "RelativePath": "api/Pedido/AbrirPedido",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -120,6 +100,26 @@
     "ReturnTypes": [
       {
         "Type": "ApiControlePedidos.Domain.Entities.Pedido",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
+    "Method": "ListarPedidos",
+    "RelativePath": "api/Pedido/ListarPedidos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ApiControlePedidos.Domain.Entities.Pedido, ControlePedidos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

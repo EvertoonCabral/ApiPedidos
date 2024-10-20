@@ -1,6 +1,5 @@
 ﻿using ApiControlePedidos.Application.Services;
 using ApiControlePedidos.Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControlePedidos.API.Controllers
@@ -16,36 +15,61 @@ namespace ApiControlePedidos.API.Controllers
             _pedidoService = pedidoService;
         }
 
-        [HttpPost("iniciar")]
+        [HttpPost("AbrirPedido")]
         public async Task<ActionResult<Pedido>> IniciarPedido(string nome)
         {
+            if (string.IsNullOrEmpty(nome))
+            {
+                return BadRequest("Nome do pedido não pode ser vazio.");
+            }
+
             var pedido = await _pedidoService.IniciarPedido(nome);
             return Ok(pedido);
         }
 
-
-        [HttpPost("{pedidoId}/produtos/{produtoId}/adicionar")]
-        public ActionResult AdicionarProduto(int pedidoId, int produtoId)
+        [HttpPost("{pedidoId}/produtos/{produtoId}/AdicionarProduto")]
+        public async Task<IActionResult> AdicionarProdutoAoPedido(int pedidoId, int produtoId)
         {
-            _pedidoService.AdicionarProdutoAoPedido(pedidoId, produtoId);
-            return NoContent();
+            try
+            {
+                await _pedidoService.AdicionarProdutoAoPedido(pedidoId, produtoId);
+                return Ok("Produto adicionado ao pedido com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete("{pedidoId}/produtos/{produtoId}/remover")]
-        public ActionResult RemoverProduto(int pedidoId, int produtoId)
+        [HttpDelete("{pedidoId}/produtos/{produtoId}/RemoverProduto")]
+        public async Task<IActionResult> RemoverProduto(int pedidoId, int produtoId)
         {
-            _pedidoService.RemoverProdutoDoPedido(pedidoId, produtoId);
-            return NoContent();
+            try
+            {
+                await _pedidoService.RemoverProdutoDoPedido(pedidoId, produtoId);
+                return Ok("Produto removido do pedido com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPost("{pedidoId}/fechar")]
-        public ActionResult FecharPedido(int pedidoId)
+        [HttpPut("{pedidoId}/FecharPedido")]
+        public async Task<IActionResult> FecharPedido(int pedidoId)
         {
-            _pedidoService.FecharPedido(pedidoId);
-            return NoContent();
+            try
+            {
+                await _pedidoService.FecharPedido(pedidoId);
+                return Ok("Pedido fechado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpGet]
+        [HttpGet("ListarPedidos")]
         public ActionResult<IEnumerable<Pedido>> ListarPedidos()
         {
             var pedidos = _pedidoService.ListarPedidos();
@@ -53,9 +77,14 @@ namespace ApiControlePedidos.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Pedido> ObterPedidoPorId(int id)
+        public async Task<ActionResult<Pedido>> ObterPedidoPorId(int id)
         {
-            var pedido = _pedidoService.ObterPedidoPorId(id);
+            var pedido = await _pedidoService.ObterPedidoPorId(id);
+            if (pedido == null)
+            {
+                return NotFound("Pedido não encontrado.");
+            }
+
             return Ok(pedido);
         }
     }

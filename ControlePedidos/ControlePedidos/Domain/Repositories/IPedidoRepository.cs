@@ -4,14 +4,11 @@ namespace ApiControlePedidos.Domain.Repositories
 {
     public interface IPedidoRepository
     {
-
-        Pedido GetPedidoById(int id);
-        IEnumerable<Pedido> GetAllPedidos();
+        Task<Pedido> GetPedidoById(int id);
         Task CreatePedido(Pedido pedido);
-        void UpdatePedido(int id, Pedido pedido);
-        void DeletePedido(int id);
-
-
-
+        Task UpdatePedido(int id, Pedido pedido);
+        Task DeletePedido(int id);
+        IEnumerable<Pedido> GetAllPedidos();
     }
+
 }

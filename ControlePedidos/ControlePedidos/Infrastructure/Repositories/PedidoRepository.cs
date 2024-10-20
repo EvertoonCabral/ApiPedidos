@@ -14,11 +14,11 @@ namespace ApiControlePedidos.Infrastructure.Repositories
             _context = context;
         }
 
-        public Pedido GetPedidoById(int id)
+        public async Task<Pedido> GetPedidoById(int pedidoId)
         {
-            return _context.Pedidos
-                .Include(p => p.Produtos) // Inclui os produtos relacionados
-                .FirstOrDefault(p => p.Id == id);
+            return await _context.Pedidos
+                                 .Include(p => p.Produtos) // Inclui os produtos no pedido
+                                 .FirstOrDefaultAsync(p => p.Id == pedidoId);
         }
 
         public IEnumerable<Pedido> GetAllPedidos()
@@ -34,21 +34,34 @@ namespace ApiControlePedidos.Infrastructure.Repositories
             await _context.SaveChangesAsync(); // Aguarde a conclusão da operação
         }
 
-
-        public void UpdatePedido(int id, Pedido pedido)
+        public async Task AddProdutoToPedido(int pedidoId, Produto produto)
         {
-            _context.Pedidos.Update(pedido);
-            _context.SaveChangesAsync();
+            var pedido = await GetPedidoById(pedidoId);
+
+            if (pedido == null)
+                throw new Exception("Pedido não encontrado.");
+
+            pedido.AdicionarProduto(produto); // Utilize o método da entidade Pedido para adicionar o produto.
+            await _context.SaveChangesAsync();
         }
 
-        public void DeletePedido(int id)
+
+        public async Task UpdatePedido(int id, Pedido pedido)
         {
-            var pedido = GetPedidoById(id);
+            _context.Pedidos.Update(pedido);
+            await _context.SaveChangesAsync();
+        }
+
+
+        public async Task DeletePedido(int id)
+        {
+            var pedido = await GetPedidoById(id); // Aguardar a tarefa para obter o Pedido
             if (pedido != null)
             {
                 _context.Pedidos.Remove(pedido);
-                _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Aguardar a conclusão da operação
             }
         }
+
     }
 }

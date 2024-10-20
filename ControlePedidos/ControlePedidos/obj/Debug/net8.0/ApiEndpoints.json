@@ -28,7 +28,7 @@
   {
     "ContainingType": "ApiControlePedidos.API.Controllers.PedidoController",
     "Method": "FecharPedido",
-    "RelativePath": "api/Pedido/{pedidoId}/fecharPedido",
+    "RelativePath": "api/Pedido/{pedidoId}/FecharPedido",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

@@ -39,14 +39,14 @@
 
             public async Task RemoverProdutoDoPedido(int pedidoId, int produtoId)
             {
-                var pedido = await _pedidoRepository.GetPedidoById(pedidoId); // Aguarde a obtenção do pedido
+                var pedido = await _pedidoRepository.GetPedidoById(pedidoId); 
                 if (pedido == null) throw new Exception("Pedido não encontrado");
 
-                var produto = await _produtoRepository.GetProdutoById(produtoId); // Aguarde a obtenção do produto
+                var produto = await _produtoRepository.GetProdutoById(produtoId); 
                 if (produto == null) throw new Exception("Produto não encontrado");
 
                 pedido.RemoverProduto(produto);
-                await _pedidoRepository.UpdatePedido(pedidoId, pedido); // Aguarde a atualização
+                await _pedidoRepository.UpdatePedido(pedidoId, pedido); 
             }
 
 

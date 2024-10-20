@@ -18,10 +18,6 @@ namespace ApiControlePedidos.API.Controllers
         [HttpPost("AbrirPedido")]
         public async Task<ActionResult<Pedido>> IniciarPedido(string nome)
         {
-            if (string.IsNullOrEmpty(nome))
-            {
-                return BadRequest("Nome do pedido não pode ser vazio.");
-            }
 
             var pedido = await _pedidoService.IniciarPedido(nome);
             return Ok(pedido);

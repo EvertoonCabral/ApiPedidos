@@ -11,27 +11,30 @@ namespace ApiControlePedidos.Domain.Entities
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public StatusPedido Status { get; private set; }
+
+        [JsonConverter(typeof(JsonDateTimeConverter))]
         public DateTime DataCadastro { get; private set; }
+
+        [JsonConverter(typeof(JsonDateTimeConverter))]
         public DateTime? DataFechamento { get; private set; }
+
+        [JsonConverter(typeof(JsonDateTimeConverter))]
         public DateTime? DataCancelamento { get; private set; }
 
-        [JsonIgnore]
         private List<Produto> _produtos;
-        [JsonIgnore]
         public IReadOnlyCollection<Produto> Produtos => _produtos.AsReadOnly();
 
         public Pedido(string nome)
         {
             Nome = nome;
-            Status = StatusPedido.aberto;
+            Status = StatusPedido.ABERTO;
             DataCadastro = DateTime.UtcNow;
             _produtos = new List<Produto>();
         }
 
         public void AdicionarProduto(Produto produto)
         {
-            // Adiciona produto apenas se o pedido estiver aberto
-            if (Status == StatusPedido.aberto)
+            if (Status == StatusPedido.ABERTO)
             {
                 _produtos.Add(produto);
             }
@@ -43,7 +46,7 @@ namespace ApiControlePedidos.Domain.Entities
 
         public void RemoverProduto(Produto produto)
         {
-            if (Status == StatusPedido.aberto)
+            if (Status == StatusPedido.ABERTO)
             {
                 _produtos.Remove(produto);
             }
@@ -55,7 +58,7 @@ namespace ApiControlePedidos.Domain.Entities
 
         public void FecharPedido()
         {
-            if (Status != StatusPedido.aberto)
+            if (Status != StatusPedido.ABERTO)
             {
                 throw new InvalidOperationException("O pedido já está fechado ou cancelado.");
             }
@@ -65,7 +68,7 @@ namespace ApiControlePedidos.Domain.Entities
                 throw new InvalidOperationException("O pedido não pode ser fechado sem produtos.");
             }
 
-            Status = StatusPedido.fechado;
+            Status = StatusPedido.ABERTO;
             DataFechamento = DateTime.UtcNow;
         }
 
@@ -73,7 +76,7 @@ namespace ApiControlePedidos.Domain.Entities
 
         public void CancelarPedido()
         {
-            Status = StatusPedido.cancelado;
+            Status = StatusPedido.CANCELADO;
             DataCancelamento = DateTime.UtcNow;
         }
 

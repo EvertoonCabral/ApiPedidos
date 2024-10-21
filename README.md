@@ -1,10 +1,10 @@
 # API de Gerenciamento de Pedidos
 
-Este projeto é uma WebAPI desenvolvida em ASP.NET para o gerenciamento de pedidos de uma loja, como parte de um teste para vaga de desenvolvedor backend.
+Este projeto é uma WebAPI desenvolvida em ASP.NET para o gerenciamento de pedidos de uma loja.
 
 ## Objetivo
 
-Criar uma WebAPI que permita realizar o controle de pedidos e produtos, aplicando boas práticas de desenvolvimento, princípios de **Domain-Driven Design (DDD)** e seguindo os requisitos descritos no teste.
+Criar uma WebAPI que permita realizar o controle de pedidos e produtos, aplicando boas práticas de desenvolvimento, princípios de **Domain-Driven Design (DDD)**.
 
 ## Funcionalidades
 

@@ -74,27 +74,27 @@ A API foi construída seguindo o conceito de **DDD**. Abaixo está um resumo das
 
 ### Iniciar um novo pedido
 
-![Iniciar Pedido](![Anexo01](https://github.com/user-attachments/assets/e50a5872-c6c9-4f9a-97e2-b95aba79e133))
+![Iniciar Pedido](https://github.com/user-attachments/assets/e50a5872-c6c9-4f9a-97e2-b95aba79e133)
 
 ### Adicionar produtos ao pedido
 
-![Adicionar Produto](![Anexo03](https://github.com/user-attachments/assets/f3219295-7094-47ae-81af-4222d2afffcf))
+![Adicionar Produto](https://github.com/user-attachments/assets/f3219295-7094-47ae-81af-4222d2afffcf)
 
 ### Remover produtos do pedido
 
-![Remover Produto](![Anexo08](https://github.com/user-attachments/assets/7ba9114e-a855-43c6-af07-bb68492cafc4))
+![Remover Produto](https://github.com/user-attachments/assets/7ba9114e-a855-43c6-af07-bb68492cafc4)
 
 ### Fechar o pedido
 
-![Fechar Pedido](![Anexo04](https://github.com/user-attachments/assets/c16238b8-780b-4483-9e67-899edd7dfaa0))
+![Fechar Pedido](https://github.com/user-attachments/assets/c16238b8-780b-4483-9e67-899edd7dfaa0)
 
 ### Listar os pedidos
 
-![Listar Pedidos](![Anexo07](https://github.com/user-attachments/assets/026aae65-44ae-4c6c-8218-615fcfc811c5))
+![Listar Pedidos](https://github.com/user-attachments/assets/026aae65-44ae-4c6c-8218-615fcfc811c5)
 
 ### Obter pedido por ID
 
-![Obter Pedido](![Anexo05](https://github.com/user-attachments/assets/24b38a5e-81a6-46f2-bd2e-331fc9b9bb35))
+![Obter Pedido](https://github.com/user-attachments/assets/24b38a5e-81a6-46f2-bd2e-331fc9b9bb35)
 
 
 

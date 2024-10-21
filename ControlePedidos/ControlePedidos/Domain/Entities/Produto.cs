@@ -16,6 +16,7 @@ namespace ApiControlePedidos.Domain.Entities
         public decimal Preco { get; set; } 
 
         public int Quantidade { get; set; }
+
         [JsonConverter(typeof(JsonDateTimeConverter))]
         public DateTime DataCadastro { get; private set; }
 

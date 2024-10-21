@@ -27,5 +27,26 @@ namespace ControlePedidos.Application.Services
             await _produtoRepository.CreateProduto(produto);
             return produto;
         }
+
+        public IEnumerable<Produto> ListarProdutosPaginados(int numeroPagina, int tamanhoPagina)
+        {
+            if (numeroPagina <= 0)
+            {
+                throw new ArgumentException("O número da página deve ser maior que zero.", nameof(numeroPagina));
+            }
+
+            if (tamanhoPagina <= 0)
+            {
+                throw new ArgumentException("O tamanho da página deve ser maior que zero.", nameof(tamanhoPagina));
+            }
+
+            return _produtoRepository.GetAllProdutos()
+                                     .Skip((numeroPagina - 1) * tamanhoPagina)  
+                                     .Take(tamanhoPagina)  
+                                     .ToList();
+        }
+
+
+
     }
 }

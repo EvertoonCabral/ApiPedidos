@@ -115,7 +115,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ApiControlePedidos.Domain.Entities.Pedido",
+        "Type": "ControlePedidos.Application.DTOs.PedidoDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -183,9 +183,9 @@
     ]
   },
   {
-    "ContainingType": "ControlePedidos.WebApi.Controolers.ProdutoController",
+    "ContainingType": "ControlePedidos.WebApi.Controllers.ProdutoController",
     "Method": "AddProduto",
-    "RelativePath": "api/Produto/Adicionar Produto",
+    "RelativePath": "api/Produto/AdicionarProduto",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -199,6 +199,37 @@
     "ReturnTypes": [
       {
         "Type": "ApiControlePedidos.Domain.Entities.Produto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ControlePedidos.WebApi.Controllers.ProdutoController",
+    "Method": "ListarProdutos",
+    "RelativePath": "api/Produto/ListarProdutos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "numeroPagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "tamanhoPagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ApiControlePedidos.Domain.Entities.Produto, ControlePedidos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -33,7 +33,7 @@ namespace ControlePedidos.Infrastructure.Repositories
 
         public IEnumerable<Produto> GetAllProdutos()
         {
-            return _context.Produtos.ToList(); // Retornar todos os produtos
+            return _context.Produtos.ToList();
         }
 
 
@@ -52,7 +52,7 @@ namespace ControlePedidos.Infrastructure.Repositories
                 existingProduto.Preco = produto.Preco;
                 existingProduto.Quantidade = produto.Quantidade;
 
-                await _context.SaveChangesAsync(); // Aguardar a conclusão da operação
+                await _context.SaveChangesAsync(); 
             }
         }
 

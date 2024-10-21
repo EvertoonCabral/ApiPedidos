@@ -24,14 +24,14 @@ namespace ApiControlePedidos.Infrastructure.Repositories
         public IEnumerable<Pedido> GetAllPedidos()
         {
             return _context.Pedidos
-                .Include(p => p.Produtos) // Inclui os produtos relacionados
+                .Include(p => p.Produtos) 
                 .ToList();
         }
 
         public async Task CreatePedido(Pedido pedido)
         {
             await _context.Pedidos.AddAsync(pedido);
-            await _context.SaveChangesAsync(); // Aguarde a conclusão da operação
+            await _context.SaveChangesAsync(); 
         }
 
         public async Task AddProdutoToPedido(int pedidoId, Produto produto)
@@ -41,7 +41,7 @@ namespace ApiControlePedidos.Infrastructure.Repositories
             if (pedido == null)
                 throw new Exception("Pedido não encontrado.");
 
-            pedido.AdicionarProduto(produto); // Utilize o método da entidade Pedido para adicionar o produto.
+            pedido.AdicionarProduto(produto);
             await _context.SaveChangesAsync();
         }
 
@@ -55,11 +55,11 @@ namespace ApiControlePedidos.Infrastructure.Repositories
 
         public async Task DeletePedido(int id)
         {
-            var pedido = await GetPedidoById(id); // Aguardar a tarefa para obter o Pedido
+            var pedido = await GetPedidoById(id); 
             if (pedido != null)
             {
                 _context.Pedidos.Remove(pedido);
-                await _context.SaveChangesAsync(); // Aguardar a conclusão da operação
+                await _context.SaveChangesAsync();
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using ApiControlePedidos.Application.Services;
 using ApiControlePedidos.Domain.Entities;
 using ApiControlePedidos.Domain.Enums;
+using ControlePedidos.Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiControlePedidos.API.Controllers
@@ -24,14 +25,23 @@ namespace ApiControlePedidos.API.Controllers
 
 
         [HttpPost("AbrirPedido")]
-        public async Task<ActionResult<Pedido>> IniciarPedido(string nome)
+        public async Task<ActionResult<PedidoDTO>> IniciarPedido(string nome)
         {
-
-
             var pedido = await _pedidoService.IniciarPedido(nome);
-            return Ok(pedido);
 
+            // Utilizando DTO para nao exibir a data de fechamento/cancelamento e a lista de produtos,
+            // tendo em vista que o pedido esta sendo aberto
+            var pedidoDTO = new PedidoDTO
+            {
+                Id = pedido.Id,
+                Nome = pedido.Nome,
+                Status = pedido.Status.ToString(),
+                DataCadastro = pedido.DataCadastro.ToString("dd/MM/yyyy HH:mm:ss")
+            };
+
+            return Ok(pedidoDTO);
         }
+
 
 
 

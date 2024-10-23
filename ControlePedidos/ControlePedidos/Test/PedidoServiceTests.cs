@@ -1,7 +1,5 @@
 ﻿using ApiControlePedidos.Application.Services;
 using ApiControlePedidos.Domain.Entities;
-using Moq;
-using Xunit;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +8,13 @@ using ApiControlePedidos.Domain.Repositories;
 
 public class PedidoServiceTests
 {
+
+    /*
+
+    Tive de remover as biblioetecas de estava utilizando para realizar os testes devido a um falso positivo do windows defender, que estava apontando 
+    o arquivo .zip com virus no momento do download no github.
+
+
     private readonly Mock<IPedidoRepository> _pedidoRepositoryMock;
     private readonly Mock<IProdutoRepository> _produtoRepositoryMock;
     private readonly PedidoService _pedidoService;
@@ -61,4 +66,6 @@ public class PedidoServiceTests
         Assert.Contains(pedido.Produtos, p => p.Id == produto.Id);
     }
 
+
+    */
 }
